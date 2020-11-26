@@ -4,15 +4,21 @@ import styles from './button.scss';
 
 const cx = classnames.bind(styles);
 
-const Button = ({ onClick, text, type }) => (
-  <div
-    className={cx('button', {
-      [`button--${type}`]: type,
-    })}
-    onClick={onClick}
+const Button = ({ onClick, text, type }) => {
+  const handleClick = () => {
+    onClick(type);
+  };
+
+  return (
+    <div
+      className={cx('button', {
+        [`button--${type}`]: type,
+      })}
+      onClick={handleClick}
     >
-    {text}
-  </div>
-);
+      {text}
+    </div>
+  );
+};
 
 export default Button;
