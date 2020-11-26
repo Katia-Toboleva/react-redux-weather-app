@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './weather-app.scss';
 import { Row, Column } from '../grid';
+import SearchResults from '../search-results';
 import SearchField from '../search-field';
 
 class WeatherApp extends React.Component {
@@ -15,11 +16,10 @@ class WeatherApp extends React.Component {
   render() {
     return (
       <div className={styles['weather-app']}>
-        <Row direction="column" center>
-          <Column>
+          <div className={styles['weather-app__wrapper']}>
+            <SearchResults />
             <SearchField />
-          </Column>
-        </Row>
+          </div>
       </div>
     );
   }
