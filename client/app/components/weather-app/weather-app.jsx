@@ -8,7 +8,34 @@ class WeatherApp extends React.Component {
     super(props);
   }
 
-  componetDidMount() {
+  componentDidMount() {
+    console.log('working');
+    this.fetchWeather();
+  }
+
+  fetchWeather() {
+    this.fetchWeatherPending();
+
+    fetch('https://community-open-weather-map.p.rapidapi.com/weather?q=London', {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-key': '1309b0fb73msh701dd5b07f4d0f1p1bdbf5jsnaab2ae4a11ba',
+        'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+      },
+    })
+      .then(response => response.json())
+      .then(data => this.fetchWeatherSuccess(data))
+      .catch(() => this.fetchWeatherRejected());
+  }
+
+  fetchWeatherSuccess(data) {
+    console.log(data);
+  }
+
+  fetchWeatherPending() {
+  }
+
+  fetchWeatherRejected() {
 
   }
 
