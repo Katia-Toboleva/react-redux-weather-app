@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './weather-app.scss';
-import { Row, Column } from '../grid';
 import SearchResults from '../search-results';
 import SearchField from '../search-field';
 
@@ -16,10 +15,10 @@ class WeatherApp extends React.Component {
   render() {
     return (
       <div className={styles['weather-app']}>
-          <div className={styles['weather-app__wrapper']}>
-            <SearchResults />
-            <SearchField />
-          </div>
+        <div className={styles['weather-app__wrapper']}>
+          <SearchResults />
+          <SearchField />
+        </div>
       </div>
     );
   }
