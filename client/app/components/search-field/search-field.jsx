@@ -1,26 +1,20 @@
 import React from 'react';
-import styles from './search-field.scss';
 import { Row, Column } from '../grid';
 import LocationInput from '../location-input';
 import Button from '../button';
+import styles from './search-field.scss';
 
-const SearchField = () => {
-  const handleButtonClick = () => {
-
-  };
-
-  return (
-    <div className={styles['search-field']}>
-      <Row direction="row" gutters="small">
-        <Column>
-          <LocationInput />
-        </Column>
-        <Column>
-          <Button onClick={handleButtonClick} text="go!" type="search" />
-        </Column>
-      </Row>
-    </div>
-  );
-};
+const SearchField = ({ onChange, onSubmit }) => (
+  <div className={styles['search-field']}>
+    <Row direction="row" gutters="small">
+      <Column>
+        <LocationInput onChange={onChange} />
+      </Column>
+      <Column>
+        <Button onClick={onSubmit} text="go!" type="search" />
+      </Column>
+    </Row>
+  </div>
+);
 
 export default SearchField;
