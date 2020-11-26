@@ -7,11 +7,13 @@ const defaultState = {
 };
 
 const fetchWeatherSuccess = (state, action) => {
+  const { location, temperature, conditions } = action;
+
   const newState = {
     ...state,
-    location: action.payload.name,
-    temperature: action.payload.main.temp,
-    conditions: action.payload.weather[0].main,
+    location,
+    temperature,
+    conditions,
     removeCvRequestStatus: 'success',
     loading: false,
   };
