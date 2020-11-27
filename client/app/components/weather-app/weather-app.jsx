@@ -26,7 +26,7 @@ const WeatherContainer = (props) => {
   };
 
   const handleSubmit = () => {
-    props.actions.fetchWeather(props.state.inputValue); // should pass location as args
+    props.actions.fetchWeather(props.state.inputValue); 
   };
 
   return (
