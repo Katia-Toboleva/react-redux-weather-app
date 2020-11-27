@@ -7,14 +7,14 @@ const defaultState = {
 };
 
 const fetchWeatherSuccess = (state, action) => {
-  const { location, temperature, conditions } = action;
+  const { location, temperature, conditions } = action.payload;
 
   const newState = {
     ...state,
     location,
     temperature,
     conditions,
-    removeCvRequestStatus: 'success',
+    fetchWeatherRequestStatus: 'success',
     loading: false,
   };
 
@@ -24,7 +24,7 @@ const fetchWeatherSuccess = (state, action) => {
 const fetchWeatherPending = (state) => {
   const newState = {
     ...state,
-    removeCvRequestStatus: 'pending',
+    fetchWeatherRequestStatus: 'pending',
     loading: true,
   };
 
@@ -34,7 +34,7 @@ const fetchWeatherPending = (state) => {
 const fetchWeatherRejected = (state) => {
   const newState = {
     ...state,
-    removeCvRequestStatus: 'rejected',
+    fetchWeatherRequestStatus: 'rejected',
     loading: false,
   };
 
