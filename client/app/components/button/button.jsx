@@ -1,18 +1,22 @@
 import React from 'react';
 import classnames from 'classnames/bind';
+import { connect } from 'react-redux';
 import styles from './button.scss';
 
 const cx = classnames.bind(styles);
 
-const Button = ({ onClick, text, type }) => {
+const Button = ({ props, onClick, text, type }) => {
   const handleClick = () => {
     onClick(type);
   };
+
+  const active = props.state.type === type;
 
   return (
     <div
       className={cx('button', {
         [`button--${type}`]: type,
+        'button--active': active,
       })}
       onClick={handleClick}
     >
@@ -21,4 +25,10 @@ const Button = ({ onClick, text, type }) => {
   );
 };
 
-export default Button;
+const mapStateToProps = (store) => ({
+  state: {
+    ...store.weather,
+  },
+});
+
+export default connect(mapStateToProps)(Button);
