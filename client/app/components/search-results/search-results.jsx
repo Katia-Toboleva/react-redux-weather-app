@@ -19,7 +19,7 @@ const SearchResults = ({ data, onSwitch }) => {
     (fetchWeatherRequestStatus === 'rejected' && <div>server is not responding</div>) ||
     (fetchWeatherRequestStatus === 'success' && (
       <div className={styles['search-results']}>
-        <Row direction="row" position="center">
+        <Row direction="row" center>
           <Column shrink>
             <Conditions conditions={conditions} />
           </Column>
