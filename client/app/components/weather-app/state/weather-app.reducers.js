@@ -4,6 +4,7 @@ const defaultState = {
   location: '',
   temperature: '',
   conditions: '',
+  tempType: 'metric',
 };
 
 const fetchWeatherSuccess = (state, action) => {
@@ -15,7 +16,6 @@ const fetchWeatherSuccess = (state, action) => {
     temperature,
     conditions,
     fetchWeatherRequestStatus: 'success',
-    loading: false,
   };
 
   return newState;
@@ -25,7 +25,6 @@ const fetchWeatherPending = (state) => {
   const newState = {
     ...state,
     fetchWeatherRequestStatus: 'pending',
-    loading: true,
   };
 
   return newState;
@@ -35,7 +34,6 @@ const fetchWeatherRejected = (state) => {
   const newState = {
     ...state,
     fetchWeatherRequestStatus: 'rejected',
-    loading: false,
   };
 
   return newState;
