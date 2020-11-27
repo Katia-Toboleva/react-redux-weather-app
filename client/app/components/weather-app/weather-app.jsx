@@ -11,7 +11,7 @@ import actions from './state/weather-app.actions';
 const Weather = ({ onChange, onSubmit, onSwitch, data }) => (
   <div className={styles['weather-app']}>
     <div className={styles['weather-app__wrapper']}>
-      <SearchResults items={data} onSwitch={onSwitch} />
+      <SearchResults data={data} onSwitch={onSwitch} />
       <SearchField
         onChange={onChange}
         onSubmit={onSubmit}
@@ -38,6 +38,7 @@ const WeatherContainer = (props) => {
       onChange={handleWeatherInputChange}
       onSubmit={handleSubmit}
       onSwitch={handleTemperatureSwitch}
+      data={props.state}
     />
   );
 };
