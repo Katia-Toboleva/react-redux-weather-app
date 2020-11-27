@@ -1,5 +1,5 @@
 import CONSTANTS from './weather-app.constants';
-import WeatherApi from './weather-app.api';
+import { get } from './weather-app.api';
 
 const fetchWeatherSuccess = (data) => ({
   type: CONSTANTS.FETCH_WEATHER_SUCCESS,
@@ -14,29 +14,28 @@ const fetchWeatherPending = () => ({
   type: CONSTANTS.FETCH_WEATHER_PENDING,
 });
 
-const fetchWeatherRejected = () => ({
+const fetchWeatherRejected = (e) => ({
   type: CONSTANTS.FETCH_WEATHER_REJECTED,
+  payload: e,
 });
 
 // async
-const fetchWeather = () => (dispatch, getState) => {
-  const { weather } = getState();
-
+const fetchWeather = (location) => (dispatch) => {
   const success = data => {
     dispatch(fetchWeatherSuccess(data));
   };
 
-  const rejected = () => {
-    dispatch(fetchWeatherRejected());
+  const rejected = err => {
+    dispatch(fetchWeatherRejected(err));
   };
 
   const queryParams = {
-    city: weather.city,
+    city: location,
   };
 
   dispatch(fetchWeatherPending());
 
-  return WeatherApi.get(queryParams)
+  return get(queryParams)
     .then(response => response.json())
     .then(success)
     .catch(rejected);
