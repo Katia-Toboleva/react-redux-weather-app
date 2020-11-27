@@ -8,14 +8,13 @@ import SearchField from '../search-field';
 
 import actions from './state/weather-app.actions';
 
-const Weather = ({ onChange, onSubmit, onSwitch, onInputClick, data }) => (
+const Weather = ({ onChange, onSubmit, onSwitch, data }) => (
   <div className={styles['weather-app']}>
     <div className={styles['weather-app__wrapper']}>
       <SearchResults data={data} onSwitch={onSwitch} />
       <SearchField
         onChange={onChange}
         onSubmit={onSubmit}
-        onInputClick={onInputClick}
       />
     </div>
   </div>
@@ -34,14 +33,9 @@ const WeatherContainer = (props) => {
     props.actions.handleSwitch(type);
   };
 
-  const handleInputClick = () => {
-    props.actions.handleInputClick();
-  };
-
   return (
     <Weather
       onChange={handleWeatherInputChange}
-      onInputClick={handleInputClick}
       onSubmit={handleSubmit}
       onSwitch={handleTemperatureSwitch}
       data={props.state}
