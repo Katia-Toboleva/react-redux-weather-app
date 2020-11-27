@@ -7,10 +7,10 @@ import styles from './search-field.scss';
 const SearchField = ({ onChange, onSubmit }) => (
   <div className={styles['search-field']}>
     <Row direction="row" gutters="small">
-      <Column>
+      <Column grow>
         <LocationInput onChange={onChange} />
       </Column>
-      <Column>
+      <Column shrink>
         <Button onClick={onSubmit} text="go!" type="search" />
       </Column>
     </Row>
