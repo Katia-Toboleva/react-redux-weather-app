@@ -21,10 +21,12 @@ const Weather = ({ onChange, onSubmit, data }) => (
 );
 
 const WeatherContainer = (props) => {
-  const handleWeatherInputChange = () => {};
+  const handleWeatherInputChange = (value) => {
+    props.actions.handleInputChange(value);
+  };
 
   const handleSubmit = () => {
-    props.actions.fetchWeather('London');
+    props.actions.fetchWeather(props.state.inputValue); // should pass location as args
   };
 
   return (

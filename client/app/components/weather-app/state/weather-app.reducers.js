@@ -41,11 +41,21 @@ const fetchWeatherRejected = (state) => {
   return newState;
 };
 
+const handleInputChange = (state, action) => {
+  const newState = {
+    ...state,
+    inputValue: action.payload,
+  };
+
+  return newState;
+};
+
 const weatherAppReducer = (state = defaultState, action) => {
   switch (action.type) {
     case CONSTANTS.FETCH_WEATHER_SUCCESS: return fetchWeatherSuccess(state, action);
     case CONSTANTS.FETCH_WEATHER_PENDING: return fetchWeatherPending(state, action);
     case CONSTANTS.FETCH_WEATHER_REJECTED: return fetchWeatherRejected(state, action);
+    case CONSTANTS.HANDLE_INPUT_CHANGE: return handleInputChange(state, action);
     default: return state;
   }
 };

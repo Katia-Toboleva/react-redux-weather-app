@@ -41,6 +41,12 @@ const fetchWeather = (location) => (dispatch) => {
     .catch(rejected);
 };
 
+const handleInputChange = (value) => ({
+  type: CONSTANTS.HANDLE_INPUT_CHANGE,
+  payload: value,
+});
+
 export default {
   fetchWeather,
+  handleInputChange,
 };
