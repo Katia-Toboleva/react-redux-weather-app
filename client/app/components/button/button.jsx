@@ -5,12 +5,12 @@ import styles from './button.scss';
 
 const cx = classnames.bind(styles);
 
-const Button = ({ props, onClick, text, type }) => {
+const Button = ({ state, onClick, text, type }) => {
   const handleClick = () => {
     onClick(type);
   };
 
-  const active = props.state.type === type;
+  const active = state.tempType === type;
 
   return (
     <div
