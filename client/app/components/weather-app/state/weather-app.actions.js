@@ -51,8 +51,13 @@ const handleSwitch = (type) => ({
   payload: type,
 });
 
+const handleInputClick = () => ({
+  type: CONSTANTS.HANDLE_INPUT_CLICK,
+});
+
 export default {
   fetchWeather,
   handleInputChange,
   handleSwitch,
+  handleInputClick,
 };
