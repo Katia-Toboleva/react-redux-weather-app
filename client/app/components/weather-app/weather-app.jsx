@@ -24,7 +24,7 @@ const WeatherContainer = (props) => {
   const handleWeatherInputChange = () => {};
 
   const handleSubmit = () => {
-    props.actions.fetchWeather();
+    props.actions.fetchWeather('London');
   };
 
   return (
@@ -35,8 +35,7 @@ const WeatherContainer = (props) => {
   );
 };
 
-const mapStateToProps = (store, ownProps) => ({
-  ...ownProps,
+const mapStateToProps = (store) => ({
   state: {
     ...store.weather,
   },
