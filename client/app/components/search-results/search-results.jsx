@@ -5,7 +5,7 @@ import Conditions from '../conditions';
 import Temperature from '../temperature';
 import TemperatureToggles from '../temperature-toggles';
 
-const SearchResults = ({ onClick }) => (
+const SearchResults = ({ onSwitch }) => (
   <div className={styles['search-results']}>
     <Row direction="row" position="center">
       <Column>
@@ -15,7 +15,7 @@ const SearchResults = ({ onClick }) => (
         <Temperature />
       </Column>
       <Column>
-        <TemperatureToggles onClick={onClick} />
+        <TemperatureToggles onSwitch={onSwitch} />
       </Column>
     </Row>
   </div>

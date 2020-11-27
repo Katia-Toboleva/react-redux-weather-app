@@ -8,10 +8,10 @@ import SearchField from '../search-field';
 
 import actions from './state/weather-app.actions';
 
-const Weather = ({ onChange, onSubmit, data }) => (
+const Weather = ({ onChange, onSubmit, onSwitch, data }) => (
   <div className={styles['weather-app']}>
     <div className={styles['weather-app__wrapper']}>
-      <SearchResults items={data} />
+      <SearchResults items={data} onSwitch={onSwitch} />
       <SearchField
         onChange={onChange}
         onSubmit={onSubmit}
@@ -26,13 +26,18 @@ const WeatherContainer = (props) => {
   };
 
   const handleSubmit = () => {
-    props.actions.fetchWeather(props.state.inputValue); 
+    props.actions.fetchWeather(props.state.inputValue);
+  };
+
+  const handleTemperatureSwitch = (type) => {
+    props.actions.handleSwitch(type);
   };
 
   return (
     <Weather
       onChange={handleWeatherInputChange}
       onSubmit={handleSubmit}
+      onSwitch={handleTemperatureSwitch}
     />
   );
 };
