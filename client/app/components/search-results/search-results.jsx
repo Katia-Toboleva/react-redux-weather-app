@@ -5,6 +5,7 @@ import Conditions from '../conditions';
 import Location from '../location';
 import Temperature from '../temperature';
 import TemperatureToggles from '../temperature-toggles';
+import Text from '../text';
 import { calcTemperatureValue } from './search-results.utilities';
 
 const SearchResults = ({ data, onSwitch }) => {
@@ -16,10 +17,14 @@ const SearchResults = ({ data, onSwitch }) => {
     tempType,
   } = data;
 
+  const requestPending = fetchWeatherRequestStatus === 'pending' && <div>loading</div>;
+  const requestRejected = fetchWeatherRequestStatus === 'rejected' &&
+    <Text text="the server is not responding, please try again..." center size="medium" color="blue" />;
+  const requestSuccessful = fetchWeatherRequestStatus === 'success';
+
   return (
-    (fetchWeatherRequestStatus === 'pending' && <div>loading</div>) ||
-    (fetchWeatherRequestStatus === 'rejected' && <div>server is not responding</div>) ||
-    (fetchWeatherRequestStatus === 'success' && (
+    requestPending || requestRejected ||
+    (requestSuccessful && (
       <div className={styles['search-results']}>
         <Location location={location} />
         <Conditions conditions={conditions} />
