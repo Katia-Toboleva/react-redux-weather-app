@@ -35,7 +35,6 @@ const Weather = ({
           onSubmit={onSubmit}
           onEnterKeyDown={onEnterKeyDown}
         />
-        <Spinner />
       </div>
     </div>
   );
