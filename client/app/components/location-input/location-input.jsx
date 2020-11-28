@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styles from './location-input.scss';
 
-const LocationInput = ({ state, onChange, onClick }) => {
+const LocationInput = ({ state, onChange, onClick, onKeyDown }) => {
   const handleOnChange = (event) => {
     const { value } = event.currentTarget;
     onChange(value);
@@ -14,6 +14,7 @@ const LocationInput = ({ state, onChange, onClick }) => {
       placeholder="Location..."
       onChange={handleOnChange}
       onClick={onClick}
+      onKeyDown={onKeyDown}
       value={state.inputValue}
     />
   );
@@ -26,5 +27,3 @@ const mapStateToProps = (store) => ({
 });
 
 export default connect(mapStateToProps)(LocationInput);
-
-// export default LocationInput;

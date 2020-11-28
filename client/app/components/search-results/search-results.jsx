@@ -8,6 +8,7 @@ import { calcTemperatureValue } from './search-results.utilities';
 
 const SearchResults = ({ data, onSwitch }) => {
   const {
+    location,
     conditions,
     fetchWeatherRequestStatus,
     temperature,
@@ -19,6 +20,8 @@ const SearchResults = ({ data, onSwitch }) => {
     (fetchWeatherRequestStatus === 'rejected' && <div>server is not responding</div>) ||
     (fetchWeatherRequestStatus === 'success' && (
       <div className={styles['search-results']}>
+        <div>{location}</div>
+        <div>{conditions}</div>
         <Row direction="row" center>
           <Column shrink>
             <Conditions conditions={conditions} />
