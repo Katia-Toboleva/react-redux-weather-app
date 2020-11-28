@@ -7,6 +7,7 @@ import SearchResults from '../search-results';
 import SearchField from '../search-field';
 import actions from './state/weather-app.actions';
 import * as weatherConditions from './images';
+import { reducer } from './state';
 
 // const cx = classnames.bind(styles);
 
@@ -18,8 +19,12 @@ const Weather = ({
   data,
 }) => {
   const { conditions } = data;
+  const conditionsLow = conditions.toLowerCase();
+
+  console.log(weatherConditions[conditionsLow]);
+
   const style = {
-    backgroundImage: `url(${weatherConditions[conditions]})`,
+    backgroundImage: `url(${weatherConditions[conditionsLow]})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',

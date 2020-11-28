@@ -1,25 +1,33 @@
+import ash from './ash.jpg';
 import clear from './clear.jpg';
-// import clear2 from './clear2.jpg';
 import clouds from './clouds.jpg';
-// import clouds2 from './clouds2.jpg';
 import drizzle from './drizzle.jpg';
-// import drizzle2 from './drizzle2.jpg';
+import dust from './dust.jpg';
+import fog from './fog.jpg';
+import haze from './haze.jpg';
+import mist from './mist.jpg';
 import rain from './rain.jpg';
-// import rain2 from './rain2.jpg';
+import sand from './sand.jpg';
+import smoke from './smoke.jpg';
 import snow from './snow.jpg';
-// import snow2 from './snow2.jpg';
+import squall from './squall.jpg';
 import thunderstorm from './thunderstorm.jpg';
+import tornado from './tornado.jpg';
 
-export default {
+export {
+  ash,
   clear,
-  // clear2,
   clouds,
-  // clouds2,
   drizzle,
-  // drizzle2,
+  dust,
+  fog,
+  haze,
+  mist,
   rain,
-  // rain2,
+  sand,
+  smoke,
   snow,
-  // snow2,
+  squall,
   thunderstorm,
+  tornado,
 };
