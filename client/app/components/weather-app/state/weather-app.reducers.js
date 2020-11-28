@@ -5,6 +5,7 @@ const defaultState = {
   temperature: '',
   conditions: '',
   tempType: 'metric',
+  inputValue: '',
 };
 
 const fetchWeatherSuccess = (state, action) => {
@@ -16,6 +17,7 @@ const fetchWeatherSuccess = (state, action) => {
     temperature,
     conditions,
     fetchWeatherRequestStatus: 'success',
+    inputValue: '',
   };
 
   return newState;
