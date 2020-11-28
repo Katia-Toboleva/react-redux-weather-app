@@ -6,6 +6,7 @@ import Location from '../location';
 import Temperature from '../temperature';
 import TemperatureToggles from '../temperature-toggles';
 import Text from '../text';
+import Spinner from '../spinner';
 import { calcTemperatureValue } from './search-results.utilities';
 
 const SearchResults = ({ data, onSwitch }) => {
@@ -17,7 +18,7 @@ const SearchResults = ({ data, onSwitch }) => {
     tempType,
   } = data;
 
-  const requestPending = fetchWeatherRequestStatus === 'pending' && <div>loading</div>;
+  const requestPending = fetchWeatherRequestStatus === 'pending' && <Spinner />;
   const requestRejected = fetchWeatherRequestStatus === 'rejected' &&
     <Text text="the server is not responding, please try again..." center size="medium" color="blue" />;
   const requestSuccessful = fetchWeatherRequestStatus === 'success';

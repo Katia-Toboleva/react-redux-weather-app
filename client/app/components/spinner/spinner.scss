@@ -1,0 +1,50 @@
+.spinner {
+  position: relative;
+
+  &__item {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(27, 157, 243);
+    margin-right: 7px;
+  }
+
+  &__item--1 {
+    left: -40px;
+    animation: spinner 1.2s infinite;
+  }
+
+  &__item--2 {
+    left: -20px;
+    animation: spinner 1.2s infinite;
+    animation-delay: 200ms;
+  }
+
+  &__item--3 {
+    left: 0px;
+    animation: spinner 1.2s infinite;
+    animation-delay: 400ms;
+  }
+
+  &__item--4 {
+    left: 20px;
+    animation: spinner 1.2s infinite;
+    animation-delay: 600ms;
+  }
+
+  &__item--5 {
+    left: 40px;
+    animation: spinner 1.2s infinite;
+    animation-delay: 800ms;
+  }
+}
+
+@keyframes spinner {
+  50% {
+    bottom: 20px;
+    transform: scale(1.2);
+    background: rgb(0, 6, 88);
+  }
+}
