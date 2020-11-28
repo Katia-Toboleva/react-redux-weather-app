@@ -1,5 +1,4 @@
 import React from 'react';
-// import classnames from 'classnames/bind';
 import { connect } from 'react-redux';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import styles from './weather-app.scss';
@@ -8,8 +7,6 @@ import SearchField from '../search-field';
 import actions from './state/weather-app.actions';
 import * as weatherConditions from './images';
 import { reducer } from './state';
-
-// const cx = classnames.bind(styles);
 
 const Weather = ({
   onChange,
@@ -43,18 +40,37 @@ const Weather = ({
 };
 
 const WeatherContainer = (props) => {
+  const { state} = props;
+  const { inputValue } = state;
+  const regex = /^[^0-9]+$/;
+  const isValueFormatCorrect = regex.test(inputValue);
+
   const handleWeatherInputChange = (value) => {
     props.actions.handleInputChange(value);
   };
 
   const handleSubmit = () => {
-    props.actions.fetchWeather(props.state.inputValue);
+    if (inputValue && isValueFormatCorrect) {
+      props.actions.fetchWeather(inputValue);
+    }
+
+    if (!isValueFormatCorrect) {
+      console.log('not a valid value');
+    }
+
+    return console.log('type in location');
   };
 
   const handleEnterKeyDown = (event) => {
-    if (event.keyCode === 13) {
-      props.actions.fetchWeather(props.state.inputValue);
+    if (event.keyCode === 13 && inputValue && isValueFormatCorrect) {
+      props.actions.fetchWeather(inputValue);
     }
+
+    if (!isValueFormatCorrect) {
+      console.log('not a valid value');
+    }
+
+    return console.log('type in location');
   };
 
   const handleTemperatureSwitch = (type) => {
