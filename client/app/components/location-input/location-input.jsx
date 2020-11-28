@@ -16,6 +16,7 @@ const LocationInput = ({ state, onChange, onClick, onKeyDown }) => {
       onClick={onClick}
       onKeyDown={onKeyDown}
       value={state.inputValue}
+      required
     />
   );
 };
