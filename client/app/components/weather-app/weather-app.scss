@@ -11,5 +11,9 @@
 
   &__wrapper {
     width: 450px;
+
+    > :not(:last-of-type) {
+      margin-bottom: 15px;
+    }
   }
 }
