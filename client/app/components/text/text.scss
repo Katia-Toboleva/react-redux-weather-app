@@ -1,0 +1,44 @@
+.text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+
+  &--size-small {
+    font-size: 20px;
+  }
+
+  &--size-medium {
+    font-size: 30px;
+  }
+
+  &--size-large {
+    font-size: 40px;
+  }
+
+  &--color-white {
+    color: rgb(255, 255, 255);
+  }
+
+  &--color-dark-blue {
+    color: rgb(0, 3, 39);
+  }
+
+  &--cases-uppercase {
+    text-transform: uppercase;
+  }
+
+  &--weight-400 {
+    font-weight: 400;
+  }
+
+  &--weight-500 {
+    font-weight: 500;
+  }
+
+  &--weight-700 {
+    font-weight: 700;
+  }
+
+  &--center {
+    text-align: center;
+  }
+}
