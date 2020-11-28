@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './search-results.scss';
 import { Row, Column } from '../grid';
 import Conditions from '../conditions';
+import Location from '../location';
 import Temperature from '../temperature';
 import TemperatureToggles from '../temperature-toggles';
 import { calcTemperatureValue } from './search-results.utilities';
@@ -20,12 +21,9 @@ const SearchResults = ({ data, onSwitch }) => {
     (fetchWeatherRequestStatus === 'rejected' && <div>server is not responding</div>) ||
     (fetchWeatherRequestStatus === 'success' && (
       <div className={styles['search-results']}>
-        <div>{location}</div>
-        <div>{conditions}</div>
+        <Location location={location} />
+        <Conditions conditions={conditions} />
         <Row direction="row" center>
-          <Column shrink>
-            <Conditions conditions={conditions} />
-          </Column>
           <Column grow>
             <Temperature temperature={calcTemperatureValue(tempType, temperature)} />
           </Column>
