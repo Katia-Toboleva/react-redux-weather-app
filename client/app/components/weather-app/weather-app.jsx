@@ -19,7 +19,10 @@ const Weather = ({
 }) => {
   const { conditions } = data;
   const style = {
-    background: url(`${weatherConditions[conditions]}`),
+    backgroundImage: `url(${weatherConditions[conditions]})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
   };
 
   return (
