@@ -4,7 +4,7 @@ export const calcTemperatureValue = (tempType, temperature) => {
 
   switch (tempType) {
     case 'metric': return (celcium > 0 ? `+${celcium}°` : `${celcium}°`);
-    case 'imperial': return (farenheit > 0 ? `+${farenheit}` : farenheit);
+    case 'imperial': return (farenheit > 0 ? `+${farenheit}°` : `${farenheit}°`);
     default: return (celcium > 0 ? `+${celcium}°` : `${celcium}°`);
   }
 };
