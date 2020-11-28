@@ -21,8 +21,6 @@ const Weather = ({
   const { conditions } = data;
   const conditionsLow = conditions.toLowerCase();
 
-  console.log(weatherConditions[conditionsLow]);
-
   const style = {
     backgroundImage: `url(${weatherConditions[conditionsLow]})`,
     backgroundPosition: 'center',
