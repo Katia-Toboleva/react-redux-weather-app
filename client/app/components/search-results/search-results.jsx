@@ -20,7 +20,7 @@ const SearchResults = ({ data, onSwitch }) => {
 
   const requestPending = fetchWeatherRequestStatus === 'pending' && <Spinner />;
   const requestRejected = fetchWeatherRequestStatus === 'rejected' &&
-    <Text text="the server is not responding, please try again..." center size="medium" color="blue" />;
+    <Text text="please check if the location is correct and try again..." center size="medium" color="blue" />;
   const requestSuccessful = fetchWeatherRequestStatus === 'success';
 
   return (

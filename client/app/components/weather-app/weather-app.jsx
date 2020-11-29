@@ -6,8 +6,6 @@ import SearchResults from '../search-results';
 import SearchField from '../search-field';
 import actions from './state/weather-app.actions';
 import * as weatherConditions from './images';
-import Spinner from '../spinner';
-import { reducer } from './state';
 
 const Weather = ({
   onChange,
