@@ -15,7 +15,7 @@ const Weather = ({
   onEnterKeyDown,
   data,
 }) => {
-  const { conditions, inputValue } = data;
+  const { conditions } = data;
   const { conditionCode } = conditions;
 
   const style = {
@@ -50,6 +50,7 @@ class WeatherContainer extends React.Component {
   }
 
   componentDidMount() {
+    const getGeolocation = this.props.actions.fetchIp();
     this.props.actions.fetchWeather('London');
   }
 
