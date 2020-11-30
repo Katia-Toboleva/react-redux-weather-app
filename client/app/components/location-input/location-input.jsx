@@ -2,14 +2,9 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import { connect } from 'react-redux';
 import styles from './location-input.scss';
+import { validate } from './location-input.utilities';
 
 const cx = classnames.bind(styles);
-
-const validate = value => {
-  const regex = /^[a-zA-Z\s]*$/;
-  const validValue = (value === '') || regex.test(value);
-  return !!validValue;
-};
 
 const LocationInput = ({
   state,
