@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from '@reduxjs/toolkit';
@@ -39,50 +40,70 @@ const Weather = ({
   );
 };
 
-const WeatherContainer = (props) => {
-  const { state } = props;
-  const { inputValue } = state;
-  const regex = /^[^0-9]+$/;
-  const isValueFormatCorrect = regex.test(inputValue);
+class WeatherContainer extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const handleWeatherInputChange = (value) => {
-    props.actions.handleInputChange(value);
-  };
+    this.handleWeatherInputChange = this.handleWeatherInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEnterKeyDown = this.handleEnterKeyDown.bind(this);
+    this.handleTemperatureSwitch = this.handleTemperatureSwitch.bind(this);
+  }
 
-  const handleSubmit = () => {
+  componentDidMount() {
+    this.props.actions.fetchWeather('London');
+  }
+
+  handleWeatherInputChange(value) {
+    this.props.actions.handleInputChange(value);
+  }
+
+  handleSubmit() {
+    const { state } = this.props;
+    const { inputValue } = state;
+    const regex = /^[^0-9]+$/;
+    const isValueFormatCorrect = regex.test(inputValue);
+
     if (inputValue && isValueFormatCorrect) {
-      props.actions.fetchWeather(inputValue);
+      this.props.actions.fetchWeather(inputValue);
     }
 
     if (!isValueFormatCorrect) {
-      props.actions.handleInputError('incorrect input');
+      this.props.actions.handleInputError('incorrect input');
     }
-  };
+  }
 
-  const handleEnterKeyDown = (event) => {
+  handleEnterKeyDown(event) {
+    const { state } = this.props;
+    const { inputValue } = state;
+    const regex = /^[^0-9]+$/;
+    const isValueFormatCorrect = regex.test(inputValue);
+
     if (event.keyCode === 13 && inputValue && isValueFormatCorrect) {
-      props.actions.fetchWeather(inputValue);
+      this.props.actions.fetchWeather(inputValue);
     }
 
     if (!isValueFormatCorrect) {
-      props.actions.handleInputError('incorrect input');
+      this.props.actions.handleInputError('incorrect input');
     }
-  };
+  }
 
-  const handleTemperatureSwitch = (type) => {
-    props.actions.handleSwitch(type);
-  };
+  handleTemperatureSwitch(type) {
+    this.props.actions.handleSwitch(type);
+  }
 
-  return (
-    <Weather
-      onChange={handleWeatherInputChange}
-      onSubmit={handleSubmit}
-      onEnterKeyDown={handleEnterKeyDown}
-      onSwitch={handleTemperatureSwitch}
-      data={props.state}
-    />
-  );
-};
+  render() {
+    return (
+      <Weather
+        onChange={this.handleWeatherInputChange}
+        onSubmit={this.handleSubmit}
+        onEnterKeyDown={this.handleEnterKeyDown}
+        onSwitch={this.handleTemperatureSwitch}
+        data={this.props.state}
+      />
+    );
+  }
+}
 
 const mapStateToProps = (store) => ({
   state: {

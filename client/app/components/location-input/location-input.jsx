@@ -5,7 +5,13 @@ import styles from './location-input.scss';
 
 const cx = classnames.bind(styles);
 
-const LocationInput = ({ state, onChange, onClick, onKeyDown, hasError }) => {
+const LocationInput = ({
+  state,
+  onChange,
+  onClick,
+  onKeyDown,
+  hasError,
+}) => {
   const handleOnChange = (event) => {
     const { value } = event.currentTarget;
     onChange(value);
