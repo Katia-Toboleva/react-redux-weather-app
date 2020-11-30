@@ -4,9 +4,16 @@ import { get } from './weather-app.api';
 const fetchWeatherSuccess = (data) => ({
   type: CONSTANTS.FETCH_WEATHER_SUCCESS,
   payload: {
-    location: data.name,
-    temperature: data.main.temp,
-    conditions: data.weather[0].main,
+    location: data.location.name,
+    temperature: {
+      metric: data.current.temp_c,
+      imperial: data.current.temp_f,
+    },
+    conditions: {
+      condition: data.current.condition.text,
+      conditionCode: data.current.condition.code,
+      isDay: data.current.is_day,
+    },
   },
 });
 

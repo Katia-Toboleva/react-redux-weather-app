@@ -18,6 +18,8 @@ const SearchResults = ({ data, onSwitch }) => {
     tempType,
   } = data;
 
+  const { condition } = conditions;
+
   const requestPending = fetchWeatherRequestStatus === 'pending' && <Spinner />;
   const requestRejected = fetchWeatherRequestStatus === 'rejected' &&
     <Text text="please check if the location is correct and try again..." center size="medium" color="blue" />;
@@ -28,7 +30,7 @@ const SearchResults = ({ data, onSwitch }) => {
     (requestSuccessful && (
       <div className={styles['search-results']}>
         <Location location={location} />
-        <Conditions conditions={conditions} />
+        <Conditions condition={condition} />
         <Row direction="row" center>
           <Column grow>
             <Temperature temperature={calcTemperatureValue(tempType, temperature)} />

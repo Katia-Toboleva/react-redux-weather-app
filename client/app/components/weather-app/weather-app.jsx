@@ -5,7 +5,7 @@ import styles from './weather-app.scss';
 import SearchResults from '../search-results';
 import SearchField from '../search-field';
 import actions from './state/weather-app.actions';
-import * as weatherConditions from './images';
+import weatherConditions from './images';
 
 const Weather = ({
   onChange,
@@ -15,10 +15,10 @@ const Weather = ({
   data,
 }) => {
   const { conditions } = data;
-  const conditionsLow = conditions.toLowerCase();
+  const { conditionCode } = conditions;
 
   const style = {
-    backgroundImage: `url(${weatherConditions[conditionsLow]})`,
+    backgroundImage: `url(${weatherConditions[conditionCode]})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -39,7 +39,7 @@ const Weather = ({
 };
 
 const WeatherContainer = (props) => {
-  const { state} = props;
+  const { state } = props;
   const { inputValue } = state;
   const regex = /^[^0-9]+$/;
   const isValueFormatCorrect = regex.test(inputValue);

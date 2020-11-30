@@ -1,6 +1,9 @@
 export const calcTemperatureValue = (tempType, temperature) => {
-  const celcium = Math.round(temperature - 273.15);
-  const farenheit = Math.round((temperature * 9) / 5 - 459.67);
+
+  const { metric, imperial } = temperature;
+
+  const celcium = Math.round(metric);
+  const farenheit = Math.round(imperial);
 
   switch (tempType) {
     case 'metric': return (celcium > 0 ? `+${celcium}°` : `${celcium}°`);
