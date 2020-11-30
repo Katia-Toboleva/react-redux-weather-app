@@ -17,7 +17,6 @@ const Weather = ({
 }) => {
   const { conditions, inputValue } = data;
   const { conditionCode } = conditions;
-  const isValidValue = !inputValue && typeof inputValue === 'boolean';
 
   const style = {
     backgroundImage: `url(${weatherConditions[conditionCode]})`,
@@ -34,7 +33,6 @@ const Weather = ({
           onChange={onChange}
           onSubmit={onSubmit}
           onEnterKeyDown={onEnterKeyDown}
-          isValidValue={!!isValidValue}
         />
       </div>
     </div>
