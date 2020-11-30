@@ -1,5 +1,4 @@
-export const calcTemperatureValue = (tempType, temperature) => {
-
+export const getCalcTemperatureValue = (tempType, temperature) => {
   const { metric, imperial } = temperature;
 
   const celcium = Math.round(metric);
