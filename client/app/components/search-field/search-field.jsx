@@ -11,7 +11,7 @@ const SearchField = ({ onChange, onSubmit, onEnterKeyDown, hasError }) => (
         <LocationInput onChange={onChange} onKeyDown={onEnterKeyDown} hasError={hasError} />
       </Column>
       <Column shrink>
-        <Button onClick={onSubmit} text="go!" type="search" />
+        <Button onClick={onSubmit} text="go!" type="submit" />
       </Column>
     </Row>
   </div>
