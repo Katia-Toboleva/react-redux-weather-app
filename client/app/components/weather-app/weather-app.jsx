@@ -62,30 +62,16 @@ class WeatherContainer extends React.Component {
   handleSubmit() {
     const { state } = this.props;
     const { inputValue } = state;
-    const regex = /^[^0-9]+$/;
-    const isValueFormatCorrect = regex.test(inputValue);
 
-    if (inputValue && isValueFormatCorrect) {
-      this.props.actions.fetchWeather(inputValue);
-    }
-
-    if (!isValueFormatCorrect) {
-      this.props.actions.handleInputError();
-    }
+    this.props.actions.fetchWeather(inputValue);
   }
 
   handleEnterKeyDown(event) {
     const { state } = this.props;
     const { inputValue } = state;
-    const regex = /^[^0-9]+$/;
-    const isValueFormatCorrect = regex.test(inputValue);
 
-    if (event.keyCode === 13 && inputValue && isValueFormatCorrect) {
+    if (event.keyCode === 13 && inputValue) {
       this.props.actions.fetchWeather(inputValue);
-    }
-
-    if (event.keyCode === 13 && !isValueFormatCorrect) {
-      this.props.actions.handleInputError();
     }
   }
 
