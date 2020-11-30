@@ -5,6 +5,12 @@ import styles from './location-input.scss';
 
 const cx = classnames.bind(styles);
 
+const validate = value => {
+  const regex = /^[a-zA-Z\s]*$/;
+  const validValue = (value === '') || regex.test(value);
+  return !!validValue;
+};
+
 const LocationInput = ({
   state,
   onChange,
@@ -14,7 +20,11 @@ const LocationInput = ({
 }) => {
   const handleOnChange = (event) => {
     const { value } = event.currentTarget;
-    onChange(value);
+    const isValueValid = validate(value);
+
+    if (isValueValid) {
+      onChange(value);
+    }
   };
 
   return (
