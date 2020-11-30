@@ -18,7 +18,7 @@ const Weather = ({
   const { conditions, inputValue } = data;
   const { conditionCode } = conditions;
   const isValidValue = !inputValue && typeof inputValue === 'boolean';
-  
+
   const style = {
     backgroundImage: `url(${weatherConditions[conditionCode]})`,
     backgroundPosition: 'center',
@@ -84,7 +84,7 @@ class WeatherContainer extends React.Component {
       this.props.actions.fetchWeather(inputValue);
     }
 
-    if (!isValueFormatCorrect) {
+    if (event.keyCode === 13 && !isValueFormatCorrect) {
       this.props.actions.handleInputError();
     }
   }
