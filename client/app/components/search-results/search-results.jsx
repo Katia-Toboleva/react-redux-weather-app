@@ -5,9 +5,9 @@ import Conditions from '../conditions';
 import Location from '../location';
 import Temperature from '../temperature';
 import TemperatureToggles from '../temperature-toggles';
-import Text from '../text';
 import Spinner from '../spinner';
 import { calcTemperatureValue } from './search-results.utilities';
+import ErrorMessage from '../error-message';
 
 const SearchResults = ({ data, onSwitch }) => {
   const {
@@ -22,7 +22,7 @@ const SearchResults = ({ data, onSwitch }) => {
 
   const requestPending = fetchWeatherRequestStatus === 'pending' && <Spinner />;
   const requestRejected = fetchWeatherRequestStatus === 'rejected' &&
-    <Text text="please check if the location is correct and try again..." center size="medium" color="blue" />;
+    <ErrorMessage />;
   const requestSuccessful = fetchWeatherRequestStatus === 'success';
 
   return (
