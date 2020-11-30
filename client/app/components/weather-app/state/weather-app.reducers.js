@@ -45,7 +45,6 @@ const handleInputChange = (state, action) => {
   const newState = {
     ...state,
     inputValue: action.payload,
-    error: '',
   };
 
   return newState;
