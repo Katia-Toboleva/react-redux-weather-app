@@ -50,9 +50,7 @@ const fetchWeather = (location) => (dispatch) => {
 
 const handleInputChange = (value) => ({
   type: CONSTANTS.INPUT_CHANGE,
-  payload: {
-    value,
-  },
+  payload: value,
 });
 
 const handleSwitch = (type) => ({
@@ -60,9 +58,8 @@ const handleSwitch = (type) => ({
   payload: type,
 });
 
-const handleInputError = (error) => ({
+const handleInputError = () => ({
   type: CONSTANTS.INPUT_ERROR,
-  payload: error,
 });
 
 export default {

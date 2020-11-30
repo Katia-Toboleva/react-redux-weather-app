@@ -10,7 +10,7 @@ const LocationInput = ({
   onChange,
   onClick,
   onKeyDown,
-  hasError,
+  isValidValue,
 }) => {
   const handleOnChange = (event) => {
     const { value } = event.currentTarget;
@@ -20,13 +20,13 @@ const LocationInput = ({
   return (
     <input
       className={cx(['location-input'], {
-        'location-input--error': hasError,
+        'location-input--error': isValidValue,
       })}
       placeholder="Location..."
       onChange={handleOnChange}
       onClick={onClick}
       onKeyDown={onKeyDown}
-      value={state.inputValue}
+      value={state.inputValue || ''}
       required
     />
   );

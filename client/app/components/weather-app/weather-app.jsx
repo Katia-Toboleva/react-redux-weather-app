@@ -15,9 +15,10 @@ const Weather = ({
   onEnterKeyDown,
   data,
 }) => {
-  const { conditions, error } = data;
+  const { conditions, inputValue } = data;
   const { conditionCode } = conditions;
-
+  const isValidValue = !inputValue && typeof inputValue === 'boolean';
+  
   const style = {
     backgroundImage: `url(${weatherConditions[conditionCode]})`,
     backgroundPosition: 'center',
@@ -33,7 +34,7 @@ const Weather = ({
           onChange={onChange}
           onSubmit={onSubmit}
           onEnterKeyDown={onEnterKeyDown}
-          hasError={!!error}
+          isValidValue={!!isValidValue}
         />
       </div>
     </div>
@@ -69,7 +70,7 @@ class WeatherContainer extends React.Component {
     }
 
     if (!isValueFormatCorrect) {
-      this.props.actions.handleInputError('incorrect input');
+      this.props.actions.handleInputError();
     }
   }
 
@@ -84,7 +85,7 @@ class WeatherContainer extends React.Component {
     }
 
     if (!isValueFormatCorrect) {
-      this.props.actions.handleInputError('incorrect input');
+      this.props.actions.handleInputError();
     }
   }
 

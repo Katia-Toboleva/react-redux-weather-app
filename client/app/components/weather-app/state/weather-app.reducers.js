@@ -60,10 +60,10 @@ const handleSwitch = (state, action) => {
   return newState;
 };
 
-const handleInputError = (state, action) => {
+const handleInputError = (state) => {
   const newState = {
     ...state,
-    error: action.payload,
+    inputValue: false,
   };
 
   return newState;

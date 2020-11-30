@@ -4,11 +4,11 @@ import LocationInput from '../location-input';
 import Button from '../button';
 import styles from './search-field.scss';
 
-const SearchField = ({ onChange, onSubmit, onEnterKeyDown, hasError }) => (
+const SearchField = ({ onChange, onSubmit, onEnterKeyDown, isValidValue }) => (
   <div className={styles['search-field']}>
     <Row direction="row" gutters="small">
       <Column grow>
-        <LocationInput onChange={onChange} onKeyDown={onEnterKeyDown} hasError={hasError} />
+        <LocationInput onChange={onChange} onKeyDown={onEnterKeyDown} isValidValue={isValidValue} />
       </Column>
       <Column shrink>
         <Button onClick={onSubmit} text="go!" type="submit" />
