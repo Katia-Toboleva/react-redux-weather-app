@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styles from './search-results.scss';
 import { Row, Column } from '../grid';
 import Conditions from '../conditions';
@@ -6,10 +7,10 @@ import Location from '../location';
 import Temperature from '../temperature';
 import TemperatureToggles from '../temperature-toggles';
 import Spinner from '../spinner';
-import { calcTemperatureValue } from './search-results.utilities';
+import { getCalcTemperatureValue } from './search-results.utilities';
 import ErrorMessage from '../error-message';
 
-const SearchResults = ({ data, onSwitch }) => {
+const SearchResults = ({ state, data, onSwitch }) => {
   const {
     location,
     conditions,
@@ -20,28 +21,42 @@ const SearchResults = ({ data, onSwitch }) => {
 
   const { condition } = conditions;
 
-  const requestPending = fetchWeatherRequestStatus === 'pending' && <Spinner />;
-  const requestRejected = fetchWeatherRequestStatus === 'rejected' &&
-    <ErrorMessage />;
-  const requestSuccessful = fetchWeatherRequestStatus === 'success';
+  if (fetchWeatherRequestStatus === 'pending') {
+    return (
+      <Spinner />
+    );
+  }
 
-  return (
-    requestPending || requestRejected ||
-    (requestSuccessful && (
+  if (fetchWeatherRequestStatus === 'rejected') {
+    return (
+      <ErrorMessage />
+    );
+  }
+
+  if (fetchWeatherRequestStatus === 'success') {
+    return (
       <div className={styles['search-results']}>
         <Location location={location} />
         <Conditions condition={condition} />
         <Row direction="row" center>
           <Column grow>
-            <Temperature temperature={calcTemperatureValue(tempType, temperature)} />
+            <Temperature temperature={getCalcTemperatureValue(tempType, temperature)} />
           </Column>
           <Column shrink>
-            <TemperatureToggles onSwitch={onSwitch} />
+            <TemperatureToggles onSwitch={onSwitch} tempType={state.tempType} />
           </Column>
         </Row>
       </div>
-    ))
-  );
+    );
+  }
+
+  return null;
 };
 
-export default SearchResults;
+const mapStateToProps = (store) => ({
+  state: {
+    ...store.weather,
+  },
+});
+
+export default connect(mapStateToProps)(SearchResults);
