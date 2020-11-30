@@ -58,8 +58,9 @@ const handleSwitch = (type) => ({
   payload: type,
 });
 
-const handleInputError = () => ({
+const handleInputError = (error) => ({
   type: CONSTANTS.HANDLE_INPUT_ERROR,
+  payload: error,
 });
 
 export default {

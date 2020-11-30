@@ -5,4 +5,8 @@
   padding: 15px;
   font-family: 'Ubuntu', sans-serif;
   font-size: 20px;
+
+  &--error {
+    outline: 2px solid red;
+  }
 }

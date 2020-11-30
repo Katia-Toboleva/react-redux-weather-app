@@ -1,8 +1,11 @@
 import React from 'react';
+import classnames from 'classnames/bind';
 import { connect } from 'react-redux';
 import styles from './location-input.scss';
 
-const LocationInput = ({ state, onChange, onClick, onKeyDown }) => {
+const cx = classnames.bind(styles);
+
+const LocationInput = ({ state, onChange, onClick, onKeyDown, hasError }) => {
   const handleOnChange = (event) => {
     const { value } = event.currentTarget;
     onChange(value);
@@ -10,7 +13,9 @@ const LocationInput = ({ state, onChange, onClick, onKeyDown }) => {
 
   return (
     <input
-      className={styles['location-input']}
+      className={cx(['location-input'], {
+        'location-input--error': hasError,
+      })}
       placeholder="Location..."
       onChange={handleOnChange}
       onClick={onClick}

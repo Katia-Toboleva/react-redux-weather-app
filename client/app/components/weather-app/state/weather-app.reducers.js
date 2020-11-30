@@ -45,6 +45,7 @@ const handleInputChange = (state, action) => {
   const newState = {
     ...state,
     inputValue: action.payload,
+    error: '',
   };
 
   return newState;
@@ -59,9 +60,10 @@ const handleSwitch = (state, action) => {
   return newState;
 };
 
-const handleInputError = (state) => {
+const handleInputError = (state, action) => {
   const newState = {
     ...state,
+    error: action.payload,
   };
 
   return newState;

@@ -14,7 +14,7 @@ const Weather = ({
   onEnterKeyDown,
   data,
 }) => {
-  const { conditions } = data;
+  const { conditions, error } = data;
   const { conditionCode } = conditions;
 
   const style = {
@@ -32,6 +32,7 @@ const Weather = ({
           onChange={onChange}
           onSubmit={onSubmit}
           onEnterKeyDown={onEnterKeyDown}
+          hasError={!!error}
         />
       </div>
     </div>
@@ -54,10 +55,8 @@ const WeatherContainer = (props) => {
     }
 
     if (!isValueFormatCorrect) {
-      console.log('not a valid value');
+      props.actions.handleInputError('incorrect input');
     }
-
-    return console.log('type in location');
   };
 
   const handleEnterKeyDown = (event) => {
@@ -66,10 +65,8 @@ const WeatherContainer = (props) => {
     }
 
     if (!isValueFormatCorrect) {
-      console.log('not a valid value');
+      props.actions.handleInputError('incorrect input');
     }
-
-    return console.log('type in location');
   };
 
   const handleTemperatureSwitch = (type) => {
