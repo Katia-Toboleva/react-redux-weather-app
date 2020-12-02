@@ -50,7 +50,6 @@ class WeatherContainer extends React.Component {
   }
 
   componentDidMount() {
-    const getGeolocation = this.props.actions.fetchIp();
     this.props.actions.fetchWeather('London');
   }
 
