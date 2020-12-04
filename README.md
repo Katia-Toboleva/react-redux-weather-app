@@ -6,7 +6,7 @@ The app provides you with current weather in any location around the globe. It s
 React-Redux, Redux state management, React, JavaScript, APIs, Async promises and fetch, Lifecycle events, SCSS and CSS modules, CSS Animation, Webpack, Babel, Eslint, Stylelint.
 
 ### Demo:
-1. Getting started
+1. Getting started:
 
 ![weather-app-1](https://user-images.githubusercontent.com/66952678/100876611-8625ca00-349f-11eb-8214-9030c7821a9e.gif)
 
