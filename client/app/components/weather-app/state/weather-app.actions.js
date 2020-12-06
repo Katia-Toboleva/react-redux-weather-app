@@ -48,10 +48,46 @@ const fetchWeather = (location) => (dispatch) => {
     .catch(rejected);
 };
 
-const handleInputChange = (value) => ({
-  type: CONSTANTS.INPUT_CHANGE,
-  payload: value,
+// geolocation
+const getLocationSuccess = (position) => ({
+  type: CONSTANTS.GET_LOCATION_SUCCESS,
+  payload: {
+    latitude: position.coords.latitude,
+    longitude: position.coords.longitude,
+    },
 });
+
+const getLocationPending = () => ({
+  type: CONSTANTS.GET_LOCATION_PENDING,
+});
+
+const getLocationRejected = (e) => ({
+  type: CONSTANTS.GET_LOCATION_REJECTED,
+  payload: e,
+});
+
+const getLocation = () => (dispatch) => {
+  const geolocation = navigator.geolocation;
+
+  const success = position => {
+    dispatch(getLocationSuccess(position));
+  };
+
+  const rejected = err => {
+    dispatch(getLocationRejected(err));
+  };
+
+  dispatch(getLocationPending());
+
+  return geolocation.getCurrentPosition(success, rejected);
+};
+
+function handleInputChange(value) {
+  return ({
+    type: CONSTANTS.INPUT_CHANGE,
+    payload: value,
+  });
+}
 
 const handleSwitch = (type) => ({
   type: CONSTANTS.TEMP_SWITCH,
@@ -62,4 +98,5 @@ export default {
   fetchWeather,
   handleInputChange,
   handleSwitch,
+  getLocation,
 };

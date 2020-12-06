@@ -50,7 +50,9 @@ class WeatherContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.actions.fetchWeather('London');
+    this.props.actions.getLocation();
+
+    // this.props.actions.fetchWeather('London');
   }
 
   handleWeatherInputChange(value) {

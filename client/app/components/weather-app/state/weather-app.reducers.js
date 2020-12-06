@@ -6,6 +6,8 @@ const defaultState = {
   conditions: '',
   tempType: 'metric',
   inputValue: '',
+  latitude: 0,
+  longitude: 0,
 };
 
 const fetchWeatherSuccess = (state, action) => {
@@ -59,6 +61,35 @@ const handleSwitch = (state, action) => {
   return newState;
 };
 
+const handleGetLocationSuccess = (state, action) => {
+  const newState = {
+    ...state,
+    latitude: action.payload.latitude,
+    longitude: action.payload.longitude,
+    getLocationRequestStatus: 'success',
+  };
+
+  return newState;
+};
+
+const handleGetLocationPending = (state) => {
+  const newState = {
+    ...state,
+    getLocationRequestStatus: 'pending',
+  };
+
+  return newState;
+};
+
+const handleGetLocationRejected = (state) => {
+  const newState = {
+    ...state,
+    getLocationRequestStatus: 'rejected',
+  };
+
+  return newState;
+};
+
 const weatherAppReducer = (state = defaultState, action) => {
   switch (action.type) {
     case CONSTANTS.FETCH_WEATHER_SUCCESS: return fetchWeatherSuccess(state, action);
@@ -66,6 +97,9 @@ const weatherAppReducer = (state = defaultState, action) => {
     case CONSTANTS.FETCH_WEATHER_REJECTED: return fetchWeatherRejected(state, action);
     case CONSTANTS.INPUT_CHANGE: return handleInputChange(state, action);
     case CONSTANTS.TEMP_SWITCH: return handleSwitch(state, action);
+    case CONSTANTS.GET_LOCATION_SUCCESS: return handleGetLocationSuccess(state, action);
+    case CONSTANTS.GET_LOCATION_PENDING: return handleGetLocationPending(state, action);
+    case CONSTANTS.GET_LOCATION_REJECTED: return handleGetLocationRejected(state, action);
     default: return state;
   }
 };
