@@ -1,4 +1,4 @@
-export const get = ({ city }) => {
+export const get = ({ location }) => {
   const options = {
     method: 'GET',
     headers: {
@@ -7,7 +7,7 @@ export const get = ({ city }) => {
     },
   };
 
-  const endpoint = `https://weatherapi-com.p.rapidapi.com/current.json?q=${city}`;
+  const endpoint = `https://weatherapi-com.p.rapidapi.com/current.json?q=${location}`;
 
   return fetch(endpoint, options);
 };

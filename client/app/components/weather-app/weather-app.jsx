@@ -51,8 +51,11 @@ class WeatherContainer extends React.Component {
 
   componentDidMount() {
     this.props.actions.getLocation();
+    // const lat = this.props.state.coords[0];
+    // const long = this.props.state.coords[1];
 
-    // this.props.actions.fetchWeather('London');
+    // this.props.actions.fetchWeather('51.470326899999996, -0.0615237');
+    // this.props.actions.fetchWeather(`${lat}, ${long}`);
   }
 
   handleWeatherInputChange(value) {

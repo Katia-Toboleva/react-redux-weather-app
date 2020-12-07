@@ -37,7 +37,7 @@ const fetchWeather = (location) => (dispatch) => {
   };
 
   const queryParams = {
-    city: location,
+    location,
   };
 
   dispatch(fetchWeatherPending());
@@ -54,7 +54,7 @@ const getLocationSuccess = (position) => ({
   payload: {
     latitude: position.coords.latitude,
     longitude: position.coords.longitude,
-    },
+  },
 });
 
 const getLocationPending = () => ({

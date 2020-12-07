@@ -6,8 +6,7 @@ const defaultState = {
   conditions: '',
   tempType: 'metric',
   inputValue: '',
-  latitude: 0,
-  longitude: 0,
+  coords: [0, 0],
 };
 
 const fetchWeatherSuccess = (state, action) => {
@@ -64,8 +63,10 @@ const handleSwitch = (state, action) => {
 const handleGetLocationSuccess = (state, action) => {
   const newState = {
     ...state,
-    latitude: action.payload.latitude,
-    longitude: action.payload.longitude,
+    coords: [
+      action.payload.latitude,
+      action.payload.longitude,
+    ],
     getLocationRequestStatus: 'success',
   };
 
