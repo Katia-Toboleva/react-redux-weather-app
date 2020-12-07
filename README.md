@@ -9,7 +9,7 @@ React-Redux, Redux state management, React, JavaScript, APIs, Async promises and
 ### Demo:
 1. Enabling geolocation in the browser to see the weather in your location:
 
-![weather-app-4](https://user-images.githubusercontent.com/66952678/101413805-d4422f80-38dc-11eb-8b77-5e5940634310.gif)
+![weather-app-4a](https://user-images.githubusercontent.com/66952678/101414630-5848e700-38de-11eb-87ff-b984debd611f.gif)
 
 2.In case the geolocation in the browser is disabled, the default city is show and the user is prompted to enable the geolocation:
 
