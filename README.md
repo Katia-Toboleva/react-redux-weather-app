@@ -13,7 +13,7 @@ React-Redux, Redux state management, React, JavaScript, APIs, Async promises and
 
 2.In case the geolocation in the browser is disabled, the default city is show and the user is prompted to enable the geolocation:
 
-![weather-app-5](https://user-images.githubusercontent.com/66952678/101414238-a6111f80-38dd-11eb-8266-9cefd560e4c9.gif)
+![weather-app-5a](https://user-images.githubusercontent.com/66952678/101414391-e7093400-38dd-11eb-8158-6dc1e22c2ab9.gif)
 
 3. Search field for current weather in any location:
 
