@@ -48,38 +48,26 @@ const fetchWeather = (location) => (dispatch) => {
     .catch(rejected);
 };
 
-// geolocation
-const getLocationSuccess = (position) => ({
-  type: CONSTANTS.GET_LOCATION_SUCCESS,
-  payload: {
-    latitude: position.coords.latitude,
-    longitude: position.coords.longitude,
-  },
-});
-
-const getLocationPending = () => ({
-  type: CONSTANTS.GET_LOCATION_PENDING,
-});
-
-const getLocationRejected = (e) => ({
-  type: CONSTANTS.GET_LOCATION_REJECTED,
-  payload: e,
-});
-
 const getLocation = () => (dispatch) => {
-  const geolocation = navigator.geolocation;
+  const { geolocation } = navigator;
+
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 10000,
+    maximumAge: 0,
+  };
 
   const success = position => {
-    dispatch(getLocationSuccess(position));
+    const { latitude, longitude } = position.coords;
+    dispatch(fetchWeather(`${latitude}, ${longitude}`));
   };
 
-  const rejected = err => {
-    dispatch(getLocationRejected(err));
+  const rejected = () => {
+    alert('To see the current weather in your location, please enable location services in your browser.');
+    dispatch(fetchWeather('London'));
   };
 
-  dispatch(getLocationPending());
-
-  return geolocation.getCurrentPosition(success, rejected);
+  return geolocation.getCurrentPosition(success, rejected, options);
 };
 
 function handleInputChange(value) {
