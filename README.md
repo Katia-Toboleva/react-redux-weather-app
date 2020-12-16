@@ -1,4 +1,5 @@
 ## Weather App built with React-Redux and geolocation
+
 ### Description: 
 The app provides you with current weather in any location around the globe. It shows the temperature and weather conditions in the searched location. You can also switch between °C and °F. The background of the app changes according to the weather conditions.
 If the user enables geolocation, the app shows the current weather in the user's location. In case the user disables geolocation in the browser, London is shown as a default location.
