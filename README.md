@@ -8,7 +8,7 @@ If the user enables geolocation, the app shows the current weather in the user's
 React-Redux, Redux state management, React, JavaScript, APIs, Async promises and fetch, Lifecycle events, SCSS and CSS modules, CSS Animation, Webpack, Babel, Eslint, Stylelint.
 
 ### Demo:
-1. Enabling geolocation in the browser to see the weather in your location:
+1.Enabling geolocation in the browser to see the weather in your location:
 
 ![weather-app-4a](https://user-images.githubusercontent.com/66952678/101414630-5848e700-38de-11eb-87ff-b984debd611f.gif)
 
